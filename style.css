@@ -1,0 +1,8 @@
+html{
+    scroll-behavior: smooth;
+}
+
+tbody tr{
+    display: flex;
+    justify-content: space-between;
+}
