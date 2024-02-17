@@ -1,10 +1,12 @@
 
 const seats = document.getElementsByClassName('seat');
 const availableSeat = document.getElementById('availableSeat');
-const total = document.getElementById('total')
+const total = document.getElementById('total');
+const seatLeft = document.getElementById('seat-left')
 
 let seatCount = 0;
-let totalTk = 0
+let totalTk = 0;
+let seatAvailAble = 40;
 for (const seat of seats) {
     seat.addEventListener('click',function(e){
 
@@ -22,11 +24,14 @@ for (const seat of seats) {
 
         seatCount++
         totalTk = totalTk + 550;
+        seatAvailAble--
         seat.disabled = true
         
 
         availableSeat.innerText = seatCount;
-        total.innerText = totalTk
+        total.innerText = totalTk;
+        seatLeft.innerText = seatAvailAble;
+        console.log(seatAvailAble)
 
 
         if(seatCount === 4){
