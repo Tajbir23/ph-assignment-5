@@ -2,7 +2,8 @@
 const seats = document.getElementsByClassName('seat');
 const availableSeat = document.getElementById('availableSeat');
 const total = document.getElementById('total');
-const seatLeft = document.getElementById('seat-left')
+const seatLeft = document.getElementById('seat-left');
+const maxTicket = document.getElementById('max-ticket')
 
 let seatCount = 0;
 let totalTk = 0;
@@ -34,10 +35,10 @@ for (const seat of seats) {
         console.log(seatAvailAble)
 
 
-        if(seatCount === 4){
+        if(seatCount >= 4){
     for (const seat of seats) {
         seat.disabled = true
-    console.log('reach out')
+        maxTicket.innerText = 'Ticket reach out'
     }
     
 }
