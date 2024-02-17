@@ -12,6 +12,7 @@ for (const seat of seats) {
     seat.addEventListener('click',function(e){
 
         seat.style.backgroundColor= '#1DD100';
+        seat.style.color = 'white'
 
         const tbody = document.querySelector('tbody');
         const tr = document.createElement('tr');
