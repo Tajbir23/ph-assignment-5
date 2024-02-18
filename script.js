@@ -33,6 +33,7 @@ for (const seat of seats) {
     totalTk = totalTk + 550;
     seatAvailAble--;
     seat.disabled = true;
+    phoneNumber.disabled = false
 
     availableSeat.innerText = seatCount;
     total.innerText = totalTk;
