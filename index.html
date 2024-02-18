@@ -237,12 +237,12 @@
             </div>
             <!-- end seat plan -->
 
-            <div>
+            <div class="w-[40%]">
               <div class="border-b border-black border-dashed pb-5 font-bold text-xl">
                 <h1>Select Your Seat</h1>
               </div>
-              <div class="py-5">
-                <table class="w-[500px]">
+              <div class="p-5 my-5 bg-[#F7F8F8] rounded-xl">
+                <table class="w-full">
                   <tr class="flex justify-between">
                     <th>Seat <span id="availableSeat" class="bg-[#1DD100]">0</span></th>
                     <th>Class</th>
@@ -256,12 +256,30 @@
                     </tr> -->
                   </tbody>
                   <tfoot>
-                    <tr class="font-bold">
+                    <tr class="font-bold flex justify-between">
                         <td>Total Price</td>
                         <td>BDT <span id="total">0</span></td>
                     </tr>
                   </tfoot>
                 </table>
+
+                <div id="coupon-container" class="my-10">
+                  <div class="flex gap-5">
+                    <input type="text" disabled="true" id="coupon-field" class="input input-bordered w-full" placeholder="Have any coupon?">
+                    <button id="coupon-btn" class="btn w-36 bg-[#1DD100] text-white font-bold" disabled="true">Apply</button>
+                  </div>
+                  <p id="invalid" class="text-red-700 hidden">Invalid coupon code</p>
+                </div>
+
+                <div id="discount-container" class="flex justify-between font-bold text-[#1DD100] hidden">
+                  <p>Discounted Price</p>
+                  <p>BDT <span id="discount">0</span></p>
+                </div>
+
+                <div class="flex justify-between font-bold">
+                  <p>Grand Total</p>
+                  <p>BDT <span id="grand-total">0</span></p>
+                </div>
               </div>
             </div>
           </div>
