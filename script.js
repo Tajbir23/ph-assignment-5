@@ -78,11 +78,13 @@ couponBtn.addEventListener('click', function(){
     }else{
         document.getElementById('invalid').classList.remove('hidden')
     }
+
+    
 })
 
 
-phoneNumber.addEventListener('input',function(){
-    const number = phoneNumber.value
+phoneNumber.addEventListener('input',function (){
+    const number = phoneNumber.value;
     if(seatCount > 0 && number.length > 0){
         submitBtn.disabled = false
     }else{
