@@ -9,6 +9,8 @@ const discountContainer = document.getElementById('discount-container');
 const discountText = document.getElementById('discount');
 const couponContainer = document.getElementById('coupon-container')
 const grandTotal = document.getElementById('grand-total');
+const phoneNumber = document.getElementById('phone');
+const submitBtn = document.getElementById('submit')
 
 let seatCount = 0;
 let totalTk = 0;
@@ -35,6 +37,7 @@ for (const seat of seats) {
     availableSeat.innerText = seatCount;
     total.innerText = totalTk;
     seatLeft.innerText = seatAvailAble;
+    grandTotal.innerText = totalTk
 
     if (seatCount >= 4) {
       for (const seat of seats) {
@@ -44,6 +47,7 @@ for (const seat of seats) {
         couponBtn.disabled = false;
       }
     }
+
   });
 }
 
@@ -73,5 +77,15 @@ couponBtn.addEventListener('click', function(){
         }
     }else{
         document.getElementById('invalid').classList.remove('hidden')
+    }
+})
+
+
+phoneNumber.addEventListener('input',function(){
+    const number = phoneNumber.value
+    if(seatCount > 0 && number.length > 0){
+        submitBtn.disabled = false
+    }else{
+        submitBtn.disabled = true
     }
 })
