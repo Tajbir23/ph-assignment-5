@@ -5,12 +5,12 @@ const seatLeft = document.getElementById("seat-left");
 const maxTicket = document.getElementById("max-ticket");
 const couponField = document.getElementById("coupon-field");
 const couponBtn = document.getElementById("coupon-btn");
-const discountContainer = document.getElementById('discount-container');
-const discountText = document.getElementById('discount');
-const couponContainer = document.getElementById('coupon-container')
-const grandTotal = document.getElementById('grand-total');
-const phoneNumber = document.getElementById('phone');
-const submitBtn = document.getElementById('submit')
+const discountContainer = document.getElementById("discount-container");
+const discountText = document.getElementById("discount");
+const couponContainer = document.getElementById("coupon-container");
+const grandTotal = document.getElementById("grand-total");
+const phoneNumber = document.getElementById("phone");
+const submitBtn = document.getElementById("submit");
 
 let seatCount = 0;
 let totalTk = 0;
@@ -33,12 +33,12 @@ for (const seat of seats) {
     totalTk = totalTk + 550;
     seatAvailAble--;
     seat.disabled = true;
-    phoneNumber.disabled = false
+    phoneNumber.disabled = false;
 
     availableSeat.innerText = seatCount;
     total.innerText = totalTk;
     seatLeft.innerText = seatAvailAble;
-    grandTotal.innerText = totalTk
+    grandTotal.innerText = totalTk;
 
     if (seatCount >= 4) {
       for (const seat of seats) {
@@ -48,47 +48,46 @@ for (const seat of seats) {
         couponBtn.disabled = false;
       }
     }
-
   });
 }
 
+couponBtn.addEventListener("click", function () {
+  const coupon = couponField.value;
+  if (coupon === "NEW15" || coupon === "Couple 20") {
+    if (coupon === "NEW15") {
+      const discount = totalTk * 0.15;
+      discountContainer.classList.remove("hidden");
+      discountText.innerText = discount;
+      couponContainer.classList.add("hidden");
 
-couponBtn.addEventListener('click', function(){
-    const coupon = couponField.value;
-    if(coupon === 'NEW15' || coupon === 'Couple 20'){
-        if(coupon === 'NEW15'){
-            const discount = totalTk*0.15;
-            discountContainer.classList.remove('hidden');
-            discountText.innerText = discount;
-            couponContainer.classList.add('hidden');
-
-            const totalPrice = totalTk - discount;
-            grandTotal.innerText = totalPrice
-        }
-
-        if(coupon === 'Couple 20'){
-            const discount = totalTk * 0.2;
-            discountContainer.classList.remove('hidden');
-            discountText.innerText = discount;
-            couponContainer.classList.add('hidden');
-
-            const totalPrice = totalTk - discount;
-            grandTotal.innerText = totalPrice
-            
-        }
-    }else{
-        document.getElementById('invalid').classList.remove('hidden')
+      const totalPrice = totalTk - discount;
+      grandTotal.innerText = totalPrice;
     }
 
-    
-})
+    if (coupon === "Couple 20") {
+      const discount = totalTk * 0.2;
+      discountContainer.classList.remove("hidden");
+      discountText.innerText = discount;
+      couponContainer.classList.add("hidden");
 
-
-phoneNumber.addEventListener('input',function (){
-    const number = phoneNumber.value;
-    if(seatCount > 0 && number.length > 0){
-        submitBtn.disabled = false
-    }else{
-        submitBtn.disabled = true
+      const totalPrice = totalTk - discount;
+      grandTotal.innerText = totalPrice;
     }
-})
+  } else {
+    document.getElementById("invalid").classList.remove("hidden");
+  }
+});
+
+phoneNumber.addEventListener("input", function () {
+  const number = phoneNumber.value;
+  if (seatCount > 0 && number.length > 0) {
+    submitBtn.disabled = false;
+  } else {
+    submitBtn.disabled = true;
+  }
+});
+
+
+function refresh(){
+  window.location.reload()
+}
